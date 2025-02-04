@@ -13,8 +13,8 @@ This is a Telegram bot that automatically forwards messages from a source channe
 1. **Clone the Repository:**
 
     ```bash
-    git clone <repository_url>
-    cd <repository_directory>
+    git clone https://github.com/khduy/forward-bot.git
+    cd forward-bot
     ```
 
 2. **Install Dependencies:**
