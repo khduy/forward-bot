@@ -1,0 +1,8 @@
+.env
+config.json
+
+# windsurf rules
+.windsurfrules
+
+# py cache folder
+__pycache__/
