@@ -5,7 +5,7 @@ from collections import defaultdict
 from telegram import Update, InputMediaPhoto, InputMediaVideo, InputMediaDocument, InputMediaAudio
 from telegram.ext import ContextTypes
 from telegram.error import RetryAfter
-from .config_manager import ConfigManager
+from config_manager import ConfigManager
 
 logger = logging.getLogger(__name__)
 

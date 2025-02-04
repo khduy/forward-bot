@@ -2,8 +2,8 @@ import os
 import logging
 from telegram.ext import Application, CommandHandler, MessageHandler, filters
 from dotenv import load_dotenv
-from core.message_forwarder import MessageForwarder
-from handlers.command_handlers import CommandHandlers
+from message_forwarder import MessageForwarder
+from command_handler import CommandHandler as BotCommandHandler
 
 # Load environment variables
 load_dotenv()
@@ -28,17 +28,17 @@ def main():
 
     # Initialize core components
     forwarder = MessageForwarder()
-    command_handlers = CommandHandlers(forwarder)
+    command_handler = BotCommandHandler(forwarder)
     
     # Initialize application
     application = Application.builder().token(BOT_TOKEN).build()
 
     # Add command handlers
-    application.add_handler(CommandHandler("start", command_handlers.start))
-    application.add_handler(CommandHandler("help", command_handlers.help_command))
-    application.add_handler(CommandHandler("setsource", command_handlers.set_source))
-    application.add_handler(CommandHandler("setdestination", command_handlers.set_destination))
-    application.add_handler(CommandHandler("config", command_handlers.show_config))
+    application.add_handler(CommandHandler("start", command_handler.start))
+    application.add_handler(CommandHandler("help", command_handler.help_command))
+    application.add_handler(CommandHandler("setsource", command_handler.set_source))
+    application.add_handler(CommandHandler("setdestination", command_handler.set_destination))
+    application.add_handler(CommandHandler("config", command_handler.show_config))
     
     # Add message handler for forwarding
     application.add_handler(MessageHandler(filters.ALL & ~filters.COMMAND, forwarder.forward_message))

@@ -4,7 +4,7 @@ import os
 
 OWNER_ID = int(os.getenv('OWNER_ID', '0'))  # Telegram user ID of bot owner
 
-class CommandHandlers:
+class CommandHandler:
     def __init__(self, message_forwarder):
         self.message_forwarder = message_forwarder
 
